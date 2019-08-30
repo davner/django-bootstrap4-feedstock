@@ -1,7 +1,6 @@
 {% set name = "django-bootstrap4" %}
-{% set version = "1.0.0" %}
-{% set sha256 = "c7d7f89e59eb5b702da0fd44438094f20e8f174970e64afece124f38cb4f3aee" %}
-
+{% set version = "1.0.1" %}
+{% set sha256 = "3da770392819267eda2f774bcf832460af00db21089b94caf4df94be8a48c48c" %}
 
 package:
   name: {{ name|lower }}
