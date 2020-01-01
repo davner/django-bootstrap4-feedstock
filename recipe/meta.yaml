@@ -1,6 +1,6 @@
 {% set name = "django-bootstrap4" %}
-{% set version = "1.0.1" %}
-{% set sha256 = "3da770392819267eda2f774bcf832460af00db21089b94caf4df94be8a48c48c" %}
+{% set version = "1.1.1" %}
+{% set sha256 = "39f97cbce85eb66f6d76be2029bae171bd3863d0c6932b1c2dae7f299c569b90" %}
 
 package:
   name: {{ name|lower }}
@@ -14,9 +14,11 @@ source:
 build:
   number: 0
   noarch: python
-  script: python -m pip install --no-deps --ignore-installed .
+  script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
+  host:
+    - setuptools_scm
   build:
     - python
     - setuptools
