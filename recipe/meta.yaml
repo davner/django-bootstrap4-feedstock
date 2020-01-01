@@ -17,12 +17,12 @@ build:
   script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
-  host:
-    - setuptools_scm
   build:
     - python
     - setuptools
     - pip
+  host:
+    - setuptools_scm
   run:
     - python
     - django >=1.11
