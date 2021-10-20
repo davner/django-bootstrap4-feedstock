@@ -1,38 +1,42 @@
-{% set name = "django-bootstrap4" %}
 {% set version = "3.0.1" %}
-{% set sha256 = "c5c97fb473bb56e3a91b4f4be52b74a3fc384ec3baae50dd0807fa922a55ec2b" %}
 
 package:
-  name: {{ name|lower }}
+  name: django-bootstrap4
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  url: https://pypi.io/packages/source/d/django-bootstrap4/django-bootstrap4-{{ version }}.tar.gz
+  sha256: c5c97fb473bb56e3a91b4f4be52b74a3fc384ec3baae50dd0807fa922a55ec2b
 
 build:
   number: 0
-  skip: true   # [py2k]
+  noarch: python
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - pip
-    - python
+    - python >=3.6
   run:
     - beautifulsoup4 >=4.8.0
     - django >=2.2
-    - importlib-metadata <3  # [py<38]
-    - python
+    - importlib-metadata <3
+    - python >=3.6
 
 test:
+  source_files:
+    - tests
+    - manage.py
   imports:
     - bootstrap4
     - bootstrap4.templatetags
   commands:
     - pip check
+    - python manage.py test
   requires:
     - pip
+    - gdal
+
 
 about:
   home: https://github.com/zostera/django-bootstrap4
