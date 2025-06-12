@@ -37,9 +37,10 @@ test:
   requires:
     - pip
     - gdal
+    - python {{ python_min }}
 
 about:
-  dev_url: https://github.com/zostera/django-bootstrap4
+  home: https://github.com/zostera/django-bootstrap4
   summary: Bootstrap 4 for Django
   license: BSD-3-Clause
   license_file: LICENSE
